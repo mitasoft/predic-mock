@@ -53,14 +53,25 @@
             </div>
         </div>
 
+        <div class="row col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="input-search">Cauta playlist</label>
+                        <input id="input-search" data-bind="value: cautaToken, event: { keypress: onEnter }, valueUpdate: 'afterkeydown'" class="form-control" type="text" >
+                        <button data-bind="click: onCauta"  class="btn btn-success" style="margin-top:10px;">Cauta
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
-            <div class="col-sm-12">
-                <div class="container col-sm-12" data-bind="foreach: playlists">
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div data-bind="text: name"></div>
-                            </div>
+            <div class="container col-sm-12" style="padding-left: 0px; padding-right:0px;" data-bind="foreach: playlists">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div data-bind="text: name"></div>
                         </div>
                     </div>
                 </div>
