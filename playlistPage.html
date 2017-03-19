@@ -15,8 +15,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.css">
+    <script src="node_modules/toastr/build/toastr.min.js"></script>
+
     <link rel="stylesheet" href="app.css">
-    <script src="app.js"></script>
+
 </head>
 
 <body>
@@ -34,32 +39,38 @@
                     <li><a href="#">Sub Menu5</a></li>
                 </ul>
             </li>-->
-            <li><a href="#">Sync content</a></li>
-            <li><a href="#">Playlists</a></li>
+            <li><a href="syncPage.html">Sync content</a></li>
+            <li><a href="playlistPage.html">Playlists</a></li>
         </ul>
     </div>
+
     <div class="container">
+
         <div class="row">
             <div class="col-sm-12">
-                <h2>Sync content</h2>
-                <p>Sync your harddrive</p>
-            </div>
-
-            <div class="col-sm-12">
-                <div class="jumbotron" style="padding:20px;">
-                    <h2>Hello, world!</h2>
-                    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-                </div>
-            </div>
-
-            <div class="col-sm-12">
-                <pre>
-<span>line 1</span>
-line 2
-line 3</pre>
+                <h2>Playlists</h2>
+                <p>It's all about playlists</p>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="container col-sm-12" data-bind="foreach: playlists">
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div data-bind="text: name"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <script src="repo.js"></script>
+    <script src="playlistPageViewModel.js"></script>
 </body>
 
 </html>

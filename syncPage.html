@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.css">
+    <script src="node_modules/toastr/build/toastr.min.js"></script>
+
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-left">
+        <a class="navbar-brand" href="#">Predic</a>
+        <ul class="nav navbar-nav">
+            <!--<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Sub Menu1</a></li>
+                    <li><a href="#">Sub Menu2</a></li>
+                    <li><a href="#">Sub Menu3</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Sub Menu4</a></li>
+                    <li><a href="#">Sub Menu5</a></li>
+                </ul>
+            </li>-->
+            <li><a href="syncPage.html">Sync content</a></li>
+            <li><a href="playlistPage.html">Playlists</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-12">
+                <h2>Sincronizare continut</h2>
+                <p>Sincronizare/istoric continut</p>
+            </div>
+
+            <div class="col-sm-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="input-pathToSync">Path to sync</label>
+                            <input id="input-pathToSync" class="form-control" type="text" data-bind="value: pathToSync">
+                            <button data-bind="click: onSavePathToSync" class="btn btn-success" style="margin-top:10px;">Salveaza
+                    </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-12">
+                <div class="jumbotron">
+                    <h2>Sincronizare</h2>
+                    <p><button data-bind="click: onStartSyncClick" class="btn btn-primary btn-lg" role="button">Start</button></p>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <h4 class="">Sincronizarile precedente</h4>
+                <button data-bind="click: onRefreshClick" style="margin-bottom: 10px;" class="btn btn-primary">Refresh status</button>
+                <table class="table table-condensed table-bordered">
+
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody data-bind="foreach: syncResults">
+                        <tr>
+                            <td data-bind="text: data"></td>
+                            <td data-bind="text: status"></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="repo.js"></script>
+    <script src="syncPageViewModel.js"></script>
+</body>
+
+</html>
