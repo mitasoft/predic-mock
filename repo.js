@@ -6,10 +6,12 @@ Repo.ContentItems = (function() {
         
         getContentItems: function() {
             return [
-                { id: 1, fullPath: 'path1/subpath1/subpath2' },
-                { id: 2, fullPath: 'path1/subpath1/subpath2' },
-                { id: 3, fullPath: 'path1/subpath1/subpath2' },
-                { id: 4, fullPath: 'path1/subpath1/subpath2' },
+                new ContentItem(1, 'path 1'),
+                new ContentItem(2, 'path 2'),
+                new ContentItem(3, 'path 3'),
+                new ContentItem(4, 'path 4'),
+                new ContentItem(5, 'path 5'),
+                new ContentItem(6, 'path 6'),
             ];
         }, 
 
@@ -44,10 +46,29 @@ Repo.ContentItems = (function() {
                 new Playlist(1, 'Playlist 1'),
                 new Playlist(3, 'Playlist 3'),
             ]
+        },
+
+        getPlaylistById: function() {
+            return new Playlist(1, 'Playlist 1', [
+                new PlaylistItem(1, 'File 1'),
+                new PlaylistItem(1, 'File 2'),
+                new PlaylistItem(1, 'File 3'),
+                new PlaylistItem(1, 'File 4'),
+            ]);
         }
     };
 
 })();
+
+function ContentItem(id, fullPath) {
+    this.id = id;
+    this.fullPath = fullPath;
+}
+
+function PlaylistItem(id, fullPath) {
+    this.id = id;
+    this.fullPath = fullPath;
+}
 
 function Playlist(id, name, items) {
     this.id = id, 

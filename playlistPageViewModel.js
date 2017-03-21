@@ -14,8 +14,16 @@ function PlaylistPageViewModel() {
 
     self.onEnter = function (model, event) {
         if (event.keyCode == 13) {
-            debugger;
+            
+            var searchAfter = self.cautaToken();
+            console.log(searchAfter);
+
+            toastr.info('Cauta ....' + searchAfter);
+
+            self.cautaToken('');
         }
+
+
         return true;
     }
 
